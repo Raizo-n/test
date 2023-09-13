@@ -27,11 +27,11 @@ const onClickAdd = () => {
         // initialize above div
         doneTarget.textContent = null
 
-        // app li tag
+        // add li tag
         const li = document.createElement('li')
         li.innerText = text
         
-        // app cancel button
+        // add cancel button
         const cancel = document.createElement('button')
         cancel.innerText = 'Cancel';
 
@@ -45,6 +45,8 @@ const onClickAdd = () => {
 
     const deleteBtn = document.createElement('button');
     deleteBtn.innerText = 'Delete';
+
+    // delete the selected todo from incomplete list
     deleteBtn.addEventListener('click', () => {
         deleteFromIncompleteList(deleteBtn.parentNode)
     })
