@@ -6,11 +6,13 @@
   </head>
 
   <body>
+    <!-- input-area -->
     <div class='input-area'>
       <input id='input-task' type="text" placeholder="Type a task...">
       <button id='add-button'>Add</button>
     </div>
 
+    <!-- incomplete-area -->
     <div class='incomplete-area'>
       <p class='title'>Undone Todos</p>
       <ul id='incomplete-list'>
@@ -22,12 +24,13 @@
       </ul>
     </div>
 
+    <!-- complete-area -->
     <div class='complete-area'>
       <p class='title'>Done Todos</p>
-      <ul>
+      <ul id='complete-list'>
         <div class='flex'>
           <li>Done Todo</li>
-          <button>Cancel</button>
+          <button id='cancel'>Cancel</button>
         </div>
       </ul>
     </div>

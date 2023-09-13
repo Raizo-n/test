@@ -15,22 +15,49 @@ const onClickAdd = () => {
 
     // Add done and delete button to each created task
     const doneBtn = document.createElement('button');
-    doneBtn.innerText = 'Done'
+    doneBtn.innerText = 'Done';
+
     doneBtn.addEventListener('click', () => {
-        alert('yoo')
+        const doneTarget = doneBtn.parentNode;
+        deleteFromIncompleteList(doneTarget);
+
+        // get the todo you wanna add to incomplete list
+        const text = doneTarget.firstElementChild.innerText;
+
+        // initialize above div
+        doneTarget.textContent = null
+
+        // app li tag
+        const li = document.createElement('li')
+        li.innerText = text
+        
+        // app cancel button
+        const cancel = document.createElement('button')
+        cancel.innerText = 'Cancel';
+
+        // set each child to the div of doneTarget
+        doneTarget.appendChild(li)
+        doneTarget.appendChild(cancel)
+
+        // add doneTarget to the complete list
+        document.getElementById('complete-list').appendChild(doneTarget)
     })
 
     const deleteBtn = document.createElement('button');
     deleteBtn.innerText = 'Delete';
     deleteBtn.addEventListener('click', () => {
-        const deleteTarget = deleteBtn.parentNode;
-        document.getElementById('incomplete-list').removeChild(deleteTarget);
+        deleteFromIncompleteList(deleteBtn.parentNode)
     })
     
     div.appendChild(li);
     div.appendChild(doneBtn);
     div.appendChild(deleteBtn);
     document.getElementById('incomplete-list').appendChild(div);
+}
+
+// Function of deleting the selected todo from incomplete list
+const deleteFromIncompleteList = (target) => {
+    document.getElementById('incomplete-list').removeChild(target);
 }
 
 document
